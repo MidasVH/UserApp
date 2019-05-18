@@ -1,0 +1,10 @@
+<h2>My Users</h2>
+<div>
+  <ul class="users">
+    <li *ngFor="let user of users" (click)="onSelect(user)">
+      <p><span>ID: </span> {{user.id}}</p>
+    </li>
+  </ul>
+</div>
+
+<app-user-detail [user]="selectedUser"></app-user-detail>
