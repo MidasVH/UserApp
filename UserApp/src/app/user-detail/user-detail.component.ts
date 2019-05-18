@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../User';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -10,9 +11,14 @@ export class UserDetailComponent implements OnInit {
 
   @Input() user: User;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+  }
+
+  setStatus(): void{
+    console.log(this.user.status);
+    this.userService.setStatus(this.user);
   }
 
 }
