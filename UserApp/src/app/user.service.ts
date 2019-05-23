@@ -10,7 +10,7 @@ import {HttpClient, HttpParams, HttpHeaders} from '@angular/common/http';
 export class UserService {
   private url = "http://localhost:8081/web_war_exploded/Controller";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getUsers() : Observable<User[]> {
     return this.http.get<User[]>(this.url, {params: new HttpParams().set('action', 'GetUsersAngular')});
