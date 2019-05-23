@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../User';
 import { USERS } from '../mock-users';
 import { UserService } from '../user.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -20,7 +21,9 @@ export class UsersComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   getUsers(): void {
+    timer(0, 2000).subscribe( () => {
     this.userService.getUsers().subscribe(users => this.users = users);
+    });
   }
 
   
